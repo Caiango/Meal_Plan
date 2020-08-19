@@ -21,7 +21,7 @@ class FinishedFragment : Fragment() {
     ): View? {
         galleryViewModel =
                 ViewModelProviders.of(this).get(FinishedViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_gallery, container, false)
+        val root = inflater.inflate(R.layout.fragment_finished, container, false)
         val textView: TextView = root.findViewById(R.id.text_gallery)
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
