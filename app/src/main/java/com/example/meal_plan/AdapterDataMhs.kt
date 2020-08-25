@@ -1,13 +1,12 @@
 package com.example.meal_plan
 
 import android.content.Intent
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.example.meal_plan.activities.NestActivity
 import com.squareup.picasso.Picasso
 
 class AdapterDataMhs(val dataMhs: List<HashMap<String, String>>) :

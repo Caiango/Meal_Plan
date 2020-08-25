@@ -1,11 +1,12 @@
-package com.example.meal_plan
+package com.example.meal_plan.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.meal_plan.R
 
-class NestActivity : AppCompatActivity() {
+class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_nest)
+        setContentView(R.layout.activity_menu)
     }
 }

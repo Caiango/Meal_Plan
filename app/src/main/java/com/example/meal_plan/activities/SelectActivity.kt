@@ -1,10 +1,11 @@
-package com.example.meal_plan
+package com.example.meal_plan.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
+import com.example.meal_plan.MainActivity
+import com.example.meal_plan.R
 import kotlinx.android.synthetic.main.activity_select.*
 
 class SelectActivity : AppCompatActivity() {
@@ -20,8 +21,11 @@ class SelectActivity : AppCompatActivity() {
                 Toast.makeText(applicationContext, "Login ou Senha Incorretos", Toast.LENGTH_LONG)
                     .show()
             }
+        }
 
-
+        cardapio_image.setOnClickListener {
+            val intent = Intent(applicationContext, MenuActivity::class.java)
+            startActivity(intent)
         }
 
     }
