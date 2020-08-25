@@ -12,8 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".NestActivity"></activity>
-        <activity android:name=".Teste" />
+        <activity
+            android:name=".SelectActivity"
+            android:theme="@style/FullScreen"></activity>
+        <activity android:name=".NestActivity" />
+
         <activity
             android:name=".SplashActivity"
             android:theme="@style/FullScreen">

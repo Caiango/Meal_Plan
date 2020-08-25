@@ -1,9 +1,12 @@
 package com.example.meal_plan
 
 import android.content.Intent
+import android.content.res.Configuration
 import android.os.Bundle
 import android.os.Handler
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
+import androidx.appcompat.app.AppCompatDelegate.*
 import com.example.meal_plan.ui.pendant.PendantFragment
 
 
@@ -14,8 +17,12 @@ class SplashActivity : AppCompatActivity() {
 
 
 
+        AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
+
+
+
         Handler().postDelayed(Runnable {
-            val i = Intent(this, MainActivity::class.java)
+            val i = Intent(this, SelectActivity::class.java)
             startActivity(i)
         }, 3000)
 
