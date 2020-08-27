@@ -21,7 +21,7 @@ class SplashActivity : AppCompatActivity() {
 
 
         Handler().postDelayed(Runnable {
-            val i = Intent(this, SelectActivity::class.java)
+            val i = Intent(this, RadioActivity::class.java)
             startActivity(i)
         }, 3000)
 
