@@ -10,9 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.meal_plan.R
 
-class FinishedFragment : Fragment() {
+class FinalizadoFragment : Fragment() {
 
-    private lateinit var galleryViewModel: FinishedViewModel
+    private lateinit var galleryViewModel: FinalizadoViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -20,7 +20,7 @@ class FinishedFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View? {
         galleryViewModel =
-                ViewModelProviders.of(this).get(FinishedViewModel::class.java)
+                ViewModelProviders.of(this).get(FinalizadoViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_finished, container, false)
         val textView: TextView = root.findViewById(R.id.text_gallery)
         galleryViewModel.text.observe(viewLifecycleOwner, Observer {

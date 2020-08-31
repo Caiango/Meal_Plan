@@ -7,7 +7,7 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_pendant">Pendant</string>
-    <string name="menu_finished">Finished</string>
+    <string name="menu_pendant">Pendente</string>
+    <string name="menu_finished">Finalizado</string>
 
 </resources>

@@ -1,134 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.RadioActivity">
+    tools:context=".activities.MenuActivity"
+    android:orientation="horizontal">
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11">
 
-        <RadioButton
-            android:id="@+id/radioButtonCopo"
-            android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Copinho" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.02" />
 
-        <RadioButton
-            android:id="@+id/radioButtonIso"
-            android:layout_width="match_parent"
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Isopor" />
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.98" />
 
-        <RadioButton
-            android:id="@+id/radioButtonTij"
-            android:layout_width="match_parent"
+        <RadioGroup
+            android:id="@+id/radioGroup1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tijela" />
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toBottomOf="@+id/txPasso1">
 
-        <RadioButton
-            android:id="@+id/radioButtonTac"
-            android:layout_width="match_parent"
+            <RadioButton
+                android:id="@+id/radioButtonCopo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Copinho" />
+
+            <RadioButton
+                android:id="@+id/radioButtonIso"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Isopor" />
+
+            <RadioButton
+                android:id="@+id/radioButtonTij"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tijela" />
+
+            <RadioButton
+                android:id="@+id/radioButtonTac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Taça" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txPasso1"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Taça" />
-    </RadioGroup>
+            android:layout_marginTop="8dp"
+            android:text="PASSO 1: ESCOLHA O TAMANHO"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="PASSO 1: ESCOLHA O TAMANHO"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
-    <CheckBox
-        android:id="@+id/checkBox1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
-        android:text="1"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox2"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        <TextView
+            android:id="@+id/txValor1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="R$ 3,00"
+            app:layout_constraintEnd_toStartOf="@+id/guideline9"
+            app:layout_constraintTop_toTopOf="@+id/radioGroup2" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="2"
-        app:layout_constraintBottom_toTopOf="@+id/checkBox3"
-        app:layout_constraintStart_toStartOf="@+id/checkBox1"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox1" />
+        <TextView
+            android:id="@+id/txValor2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="R$ 4,00"
+            app:layout_constraintBottom_toTopOf="@+id/txValor3"
+            app:layout_constraintEnd_toStartOf="@+id/guideline9"
+            app:layout_constraintTop_toBottomOf="@+id/txValor1" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        <TextView
+            android:id="@+id/txValor3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="R$ 5,00"
+            app:layout_constraintBottom_toBottomOf="@+id/radioGroup2"
+            app:layout_constraintEnd_toStartOf="@+id/guideline9" />
 
-    <CheckBox
-        android:id="@+id/checkBox3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="3"
-        app:layout_constraintStart_toStartOf="@+id/checkBox2"
-        app:layout_constraintTop_toBottomOf="@+id/checkBox2" />
 
-    <TextView
-        android:id="@+id/txValor1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
-        android:text="R$ 3,00"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        <View
+            android:id="@+id/viewPasso1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/holo_purple"
+            app:layout_constraintEnd_toEndOf="@id/guideline9"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup1" />
 
-    <TextView
-        android:id="@+id/txValor2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="16dp"
-        android:text="R$ 4,00"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txValor1" />
+        <RadioGroup
+            android:id="@+id/radioGroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toTopOf="@+id/viewPasso1"
+            app:layout_constraintEnd_toStartOf="@+id/txValor2"
+            app:layout_constraintStart_toEndOf="@+id/radioGroup1"
+            app:layout_constraintTop_toBottomOf="@+id/txPasso1">
 
-    <TextView
-        android:id="@+id/txValor3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:text="R$ 5,00"
-        app:layout_constraintBottom_toBottomOf="@+id/checkBox3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txValor2" />
+            <RadioButton
+                android:id="@+id/radioopt1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RadioButton" />
 
-    <View
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/holo_purple"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+            <RadioButton
+                android:id="@+id/radioopt2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RadioButton" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <RadioButton
+                android:id="@+id/radioopt3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="RadioButton" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/txPasso2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="PASSO 2: ESCOLHA OS CREMES"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/guideline9"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toTopOf="@id/viewPasso1" />
+
+        <TextView
+            android:id="@+id/txPasso2Desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            app:layout_constraintEnd_toStartOf="@+id/guideline9"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toBottomOf="@+id/txPasso2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

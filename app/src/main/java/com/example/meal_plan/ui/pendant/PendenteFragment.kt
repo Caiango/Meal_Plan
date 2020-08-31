@@ -1,15 +1,11 @@
 package com.example.meal_plan.ui.pendant
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,12 +15,11 @@ import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.meal_plan.AdapterDataMhs
 import com.example.meal_plan.R
-import kotlinx.android.synthetic.main.fragment_pendant.*
 import org.json.JSONArray
 
-class PendantFragment : Fragment() {
+class PendenteFragment : Fragment() {
 
-    private lateinit var homeViewModel: PendantViewModel
+    private lateinit var homeViewModel: PendenteViewModel
     var daftarMhs = mutableListOf<HashMap<String, String>>()
     var url = "http://192.168.25.239/meal_plan/show_data.php"
     lateinit var mhsAdapter: AdapterDataMhs
@@ -36,7 +31,7 @@ class PendantFragment : Fragment() {
     ): View? {
 
         homeViewModel =
-            ViewModelProviders.of(this).get(PendantViewModel::class.java)
+            ViewModelProviders.of(this).get(PendenteViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_pendant, container, false)
 //        val textView: TextView = root.findViewById(R.id.text_home
         mhsAdapter = AdapterDataMhs(daftarMhs)

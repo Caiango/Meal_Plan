@@ -4,18 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#CBF6F6F6"
     tools:context=".activities.SelectActivity">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/cardapio_image"
         android:layout_width="198dp"
         android:layout_height="171dp"
+        android:background="@drawable/ripple_effect"
         android:src="@mipmap/cardapio_foreground"
         app:civ_border_color="#FF000000"
         app:civ_border_width="2dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
-        android:background="@drawable/ripple_effect"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -104,6 +103,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.96" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,13 +7,13 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.example.meal_plan.ui.pendant.PendantFragment"
+        android:name="com.example.meal_plan.ui.pendant.PendenteFragment"
         android:label="@string/menu_pendant"
         tools:layout="@layout/fragment_pendant" />
 
     <fragment
         android:id="@+id/nav_gallery"
-        android:name="com.example.meal_plan.ui.finished.FinishedFragment"
+        android:name="com.example.meal_plan.ui.finished.FinalizadoFragment"
         android:label="@string/menu_finished"
         tools:layout="@layout/fragment_finished" />
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.pendant.PendantFragment">
+    tools:context=".ui.pendant.PendenteFragment">
 
     <Button
         android:id="@+id/buttonPedir"
