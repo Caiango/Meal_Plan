@@ -124,7 +124,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             app:layout_constraintBottom_toTopOf="@+id/viewPasso1"
-            app:layout_constraintEnd_toStartOf="@+id/txValor2"
+            app:layout_constraintEnd_toStartOf="@+id/txValor1"
             app:layout_constraintStart_toEndOf="@+id/radioGroup1"
             app:layout_constraintTop_toBottomOf="@+id/txPasso1">
 
@@ -163,10 +163,77 @@
             android:id="@+id/txPasso2Desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="ESCOLHAS"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
             app:layout_constraintTop_toBottomOf="@+id/txPasso2" />
+
+        <CheckBox
+            android:id="@+id/cb21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Cupuaçu"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toBottomOf="@+id/txPasso2Desc" />
+
+        <CheckBox
+            android:id="@+id/cb22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Tapioca"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toBottomOf="@+id/cb21" />
+
+        <CheckBox
+            android:id="@+id/cb23"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="4dp"
+            android:text="Ninho"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toBottomOf="@+id/cb22" />
+
+        <CheckBox
+            android:id="@+id/cb24"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="4dp"
+            android:text="Ninho com Nuttela"
+            app:layout_constraintStart_toEndOf="@+id/cb21"
+            app:layout_constraintTop_toBottomOf="@+id/txPasso2Desc" />
+
+        <CheckBox
+            android:id="@+id/cb25"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Morango"
+            app:layout_constraintStart_toStartOf="@+id/cb24"
+            app:layout_constraintTop_toBottomOf="@+id/cb24" />
+
+        <CheckBox
+            android:id="@+id/cb26"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Ninho com Oreo"
+            app:layout_constraintStart_toStartOf="@+id/cb25"
+            app:layout_constraintTop_toBottomOf="@+id/cb25" />
+
+        <View
+            android:id="@+id/viewPasso2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@android:color/holo_purple"
+            app:layout_constraintEnd_toEndOf="@id/guideline9"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            tools:layout_editor_absoluteY="392dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
