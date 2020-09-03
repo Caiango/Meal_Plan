@@ -14,11 +14,7 @@ class SplashActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
-
-
         AppCompatDelegate.setDefaultNightMode(MODE_NIGHT_NO)
-
-
 
         Handler().postDelayed(Runnable {
             val i = Intent(this, SelectActivity::class.java)

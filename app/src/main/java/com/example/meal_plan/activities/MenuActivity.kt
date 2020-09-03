@@ -18,7 +18,9 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
     var mLay = LayChanges()
 
-    var creme: ArrayList<CheckBox> = ArrayList()
+    companion object {var creme: ArrayList<CheckBox> = ArrayList()}
+
+
     var selCreme: ArrayList<String> = ArrayList()
 
     lateinit var rbGroup2: RadioButton
@@ -48,7 +50,10 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
 
 
-        radioButtonCopo.setOnClickListener { mLay.changePass(this) }
+        radioButtonCopo.setOnClickListener {
+            mLay.changePass(this)
+
+        }
         radioButtonIso.setOnClickListener { mLay.changePass(this) }
         radioButtonTac.setOnClickListener { mLay.changePass(this) }
         radioButtonTij.setOnClickListener { mLay.changePass(this) }
