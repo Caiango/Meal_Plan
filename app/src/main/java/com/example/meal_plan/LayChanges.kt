@@ -16,8 +16,10 @@ lateinit var act: Activity
 
 class LayChanges {
     var limitCount = 0
+    var limitCountFar = 0
     fun changePass(activity: Activity) {
         act = activity
+
         when {
             activity.radioButtonCopo.isChecked -> {
 
@@ -30,6 +32,8 @@ class LayChanges {
                 setupView(act.txPasso2Desc, "Apenas Adicional / Passo 7", false)
                 activateCheck(MenuActivity.creme, false)
                 getValueTam()
+                limitCountFar = 2
+                changeDesCop(MenuActivity.desc, "")
 
 
             }
@@ -41,10 +45,11 @@ class LayChanges {
                 setupView(act.txValor1, "R$ 5,00", false)
                 setupView(act.txValor2, "R$ 8,00", false)
                 setupView(act.txValor3, "R$ 10,00", false)
-                setupView(act.txPasso2Desc, "1 Escolha", false)
+                setupView(act.txPasso2Desc, "1 Bola Grátis", false)
                 activateCheck(MenuActivity.creme, true)
                 limitCount = 1
                 getValueTam()
+                changeDesCop(MenuActivity.desc, "3 Opções")
 
             }
             activity.radioButtonTij.isChecked -> {
@@ -55,10 +60,11 @@ class LayChanges {
                 setupView(act.txValor1, "R$ 4,00", false)
                 setupView(act.txValor2, "R$ 7,00", false)
                 setupView(act.txValor3, "R$ 10,00", false)
-                setupView(act.txPasso2Desc, "1 Escolha", false)
+                setupView(act.txPasso2Desc, "1 Bola Grátis", false)
                 activateCheck(MenuActivity.creme, true)
                 limitCount = 1
                 getValueTam()
+                changeDesCop(MenuActivity.desc, "3 Opções")
 
             }
             activity.radioButtonTac.isChecked -> {
@@ -69,15 +75,17 @@ class LayChanges {
                 setupView(act.txValor1, "R$ 5,00", false)
                 setupView(act.txValor2, "R$ 10,00", false)
                 setupView(act.txValor3, "R$ 15,00", false)
-                setupView(act.txPasso2Desc, "1 Escolha", false)
+                setupView(act.txPasso2Desc, "1 Bola Grátis", false)
                 activateCheck(MenuActivity.creme, true)
                 limitCount = 1
                 getValueTam()
+                changeDesCop(MenuActivity.desc, "3 Opções")
 
             }
         }
     }
 
+    //seta o texto e invisibilidade dos textview valores e RadioButton
     fun setupView(v: View, text: String, isInvi: Boolean) {
         if (v is TextView) {
             v.text = text.trim()
@@ -89,27 +97,42 @@ class LayChanges {
 
     }
 
+    //obter valores dos tamanhos escolhidos
     fun getValueTam() {
         when {
             act.radioopt1.isChecked -> {
                 var tx = act.txValor1.text.toString()
-                Toast.makeText(act.applicationContext, tx, Toast.LENGTH_LONG).show()
             }
             act.radioopt2.isChecked -> {
                 var tx = act.txValor2.text.toString()
-                Toast.makeText(act.applicationContext, tx, Toast.LENGTH_LONG).show()
             }
             act.radioopt3.isChecked -> {
                 var tx = act.txValor3.text.toString()
-                Toast.makeText(act.applicationContext, tx, Toast.LENGTH_LONG).show()
             }
         }
     }
 
-    fun activateCheck(v: ArrayList<CheckBox>, isSel: Boolean) {
+    //desmarca as checkbox e deixa selecionavel
+    fun activateCheck(v: ArrayList<CheckBox>, isEnable: Boolean) {
         for (check: CheckBox in v) {
+
             check.isChecked = false
-            check.isEnabled = isSel
+            check.isEnabled = isEnable
+
+        }
+    }
+
+    //muda a descrição
+    fun changeDesCop(v: ArrayList<TextView>, text: String) {
+        act.radioopt1.setOnClickListener {
+            for (tx: TextView in v) {
+                tx.text = "2 Opções"
+            }
+        }
+        act.radioopt2.setOnClickListener {
+            act.txPasso3Desc.text = text
+            act.txPasso5Desc.text = text
+            act.txPasso4Desc.text = "4 Opções"
         }
     }
 }

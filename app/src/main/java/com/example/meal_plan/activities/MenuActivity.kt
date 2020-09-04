@@ -1,10 +1,7 @@
 package com.example.meal_plan.activities
 
 import android.os.Bundle
-import android.widget.CheckBox
-import android.widget.CompoundButton
-import android.widget.RadioButton
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import com.example.meal_plan.LayChanges
@@ -18,7 +15,14 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
     var mLay = LayChanges()
 
-    companion object {var creme: ArrayList<CheckBox> = ArrayList()}
+    companion object {
+        var creme: ArrayList<CheckBox> = ArrayList()
+        var farinaceos: ArrayList<CheckBox> = ArrayList()
+        var cereais: ArrayList<CheckBox> = ArrayList()
+        var frutas: ArrayList<CheckBox> = ArrayList()
+        var cobertura: ArrayList<CheckBox> = ArrayList()
+        var desc: ArrayList<TextView> = ArrayList()
+    }
 
 
     var selCreme: ArrayList<String> = ArrayList()
@@ -27,6 +31,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
 
     var count = 0
+    var countFar = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +45,15 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         creme.add(cb24)
         creme.add(cb25)
         creme.add(cb26)
+        farinaceos.add(cb31)
+        farinaceos.add(cb32)
+        farinaceos.add(cb33)
+        farinaceos.add(cb34)
+        farinaceos.add(cb35)
+        farinaceos.add(cb36)
+        desc.add(txPasso3Desc)
+        desc.add(txPasso4Desc)
+        desc.add(txPasso5Desc)
 
         cb21.setOnCheckedChangeListener(this)
         cb22.setOnCheckedChangeListener(this)
@@ -50,10 +64,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
 
 
-        radioButtonCopo.setOnClickListener {
-            mLay.changePass(this)
-
-        }
+        radioButtonCopo.setOnClickListener { mLay.changePass(this) }
         radioButtonIso.setOnClickListener { mLay.changePass(this) }
         radioButtonTac.setOnClickListener { mLay.changePass(this) }
         radioButtonTij.setOnClickListener { mLay.changePass(this) }
@@ -78,8 +89,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
                     }
                 }
-                Toast.makeText(applicationContext, selCreme.toString(), Toast.LENGTH_LONG)
-                    .show()
             }
         } else {
             count--
@@ -94,16 +103,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
     }
 
-//    fun getSelCheckBox() {
-//        for (check: CheckBox in creme) {
-//            if (check.isChecked) {
-//                selCreme.clear()
-//                selCreme.add(check.text.toString())
-//                Toast.makeText(applicationContext, selCreme.first(), Toast.LENGTH_LONG).show()
-//            }
-//        }
-//    }
-
 
     //funçao para obter os valores do elemento do radiogroup2 marcado
     fun onChangedRadio() {
@@ -117,6 +116,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         }
     }
 
+    
 
 
 }
