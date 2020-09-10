@@ -33,6 +33,9 @@ class LayChanges {
                 setupView(act.txValor3, "", true)
                 setupView(act.txPasso2Desc, "Apenas Adicional / Passo 7", false)
                 activateCheck(MenuActivity.creme, false)
+                activateCheck(MenuActivity.farinaceos, true)
+                activateCheck(MenuActivity.cereais, true)
+                activateCheck(MenuActivity.frutas, true)
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "")
 
@@ -48,6 +51,9 @@ class LayChanges {
                 setupView(act.txValor3, "R$ 10,00", false)
                 setupView(act.txPasso2Desc, "1 Bola Grátis", false)
                 activateCheck(MenuActivity.creme, true)
+                activateCheck(MenuActivity.farinaceos, true)
+                activateCheck(MenuActivity.cereais, true)
+                activateCheck(MenuActivity.frutas, true)
                 limitCountCre = 1
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
@@ -63,6 +69,9 @@ class LayChanges {
                 setupView(act.txValor3, "R$ 10,00", false)
                 setupView(act.txPasso2Desc, "1 Bola Grátis", false)
                 activateCheck(MenuActivity.creme, true)
+                activateCheck(MenuActivity.farinaceos, true)
+                activateCheck(MenuActivity.cereais, true)
+                activateCheck(MenuActivity.frutas, true)
                 limitCountCre = 1
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
@@ -78,6 +87,9 @@ class LayChanges {
                 setupView(act.txValor3, "R$ 15,00", false)
                 setupView(act.txPasso2Desc, "1 Bola Grátis", false)
                 activateCheck(MenuActivity.creme, true)
+                activateCheck(MenuActivity.farinaceos, true)
+                activateCheck(MenuActivity.cereais, true)
+                activateCheck(MenuActivity.frutas, true)
                 limitCountCre = 1
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
@@ -120,8 +132,6 @@ class LayChanges {
             check.isChecked = false
             check.isEnabled = isEnable
 
-            MenuActivity.countCrem = 0
-
         }
     }
 
@@ -132,7 +142,6 @@ class LayChanges {
                 tx.text = "2 Opções"
             }
             setLimit(act.radioopt1)
-            Toast.makeText(act.applicationContext, "op1", Toast.LENGTH_LONG).show()
         }
         act.radioopt2.setOnClickListener {
             act.txPasso3Desc.text = text
@@ -158,13 +167,11 @@ class LayChanges {
                     limitCountFru = 2
                 }
                 v.isChecked && v == act.radioopt2 -> {
-                    Toast.makeText(act.applicationContext, "op2", Toast.LENGTH_LONG).show()
                     limitCountFar = 3
                     limitCountCer = 4
                     limitCountFru = 3
                 }
                 v.isChecked && v == act.radioopt3 -> {
-                    Toast.makeText(act.applicationContext, "op3", Toast.LENGTH_LONG).show()
                     limitCountFar = 3
                     limitCountCer = 4
                     limitCountFru = 3

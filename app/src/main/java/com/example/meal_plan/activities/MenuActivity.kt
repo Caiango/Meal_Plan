@@ -17,12 +17,15 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     var mLay = LayChanges()
 
     companion object {
+        //var para armazenar os checkbox de cada passo
         var creme: ArrayList<CheckBox> = ArrayList()
         var farinaceos: ArrayList<CheckBox> = ArrayList()
         var cereais: ArrayList<CheckBox> = ArrayList()
         var frutas: ArrayList<CheckBox> = ArrayList()
         var cobertura: ArrayList<CheckBox> = ArrayList()
+        //var para armazenar todos os textviews das descrições
         var desc: ArrayList<TextView> = ArrayList()
+        //var para armazenar os contadores de marcação dos checkbox
         var countCrem = 0
         var countFar = 0
         var countCer = 0
@@ -31,6 +34,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     }
 
 
+    //var para armazenar os textos dos checkbox selecionados
     var selCreme: ArrayList<String> = ArrayList()
 
     lateinit var rbGroup2: RadioButton
@@ -119,6 +123,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
     }
 
+    //função checkedChanged Creme
     override fun onCheckedChanged(cb: CompoundButton?, isChecked: Boolean) {
 
         if (isChecked) {
@@ -158,29 +163,93 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         }
     }
 
+    //função checkedChanged Farináceos
     fun onCheckedChangeFar(): CompoundButton.OnCheckedChangeListener {
 
         return CompoundButton.OnCheckedChangeListener { cb, isChecked ->
 
-            checkedValidator(countFar, isChecked, farinaceos, mLay.limitCountFar)
+            if (isChecked) {
+                countFar++
+                if (countFar == mLay.limitCountFar) {
+                    for (check: CheckBox in farinaceos) {
+                        check.isEnabled = check.isChecked
+//                    if (check.isChecked) {
+//                        selCreme.add(check.text.toString())
+//
+//                    }
+                    }
+                }
+            } else {
+                countFar--
+                if (countFar in 0 until mLay.limitCountFar) {
+                    for (check: CheckBox in farinaceos) {
+                        check.isEnabled = true
+                        //selCreme.clear()
+                    }
+                }
+            }
 
         }
+
     }
 
+
+    //função checkedChanged Cereal
     fun onCheckedChangeCereal(): CompoundButton.OnCheckedChangeListener {
 
         return CompoundButton.OnCheckedChangeListener { cb, isChecked ->
 
-            checkedValidator(countCer, isChecked, cereais, mLay.limitCountCer)
+            if (isChecked) {
+                countCer++
+                if (countCer == mLay.limitCountCer) {
+                    for (check: CheckBox in cereais) {
+                        check.isEnabled = check.isChecked
+//                    if (check.isChecked) {
+//                        selCreme.add(check.text.toString())
+//
+//                    }
+                    }
+                }
+            } else {
+                countCer--
+                if (countCer in 0 until mLay.limitCountCer) {
+                    for (check: CheckBox in cereais) {
+                        check.isEnabled = true
+                        //selCreme.clear()
+                    }
+                }
+            }
 
         }
+
     }
 
+
+    //função checkedChanged Frutas
     fun onCheckedChangeFruta(): CompoundButton.OnCheckedChangeListener {
 
         return CompoundButton.OnCheckedChangeListener { cb, isChecked ->
 
-            checkedValidator(countFru, isChecked, frutas, mLay.limitCountFru)
+            if (isChecked) {
+                countFru++
+                if (countFru == mLay.limitCountFru) {
+                    for (check: CheckBox in frutas) {
+                        check.isEnabled = check.isChecked
+//                    if (check.isChecked) {
+//                        selCreme.add(check.text.toString())
+//
+//                    }
+                    }
+                }
+            } else {
+                countFru--
+                if (countFru in 0 until mLay.limitCountFru) {
+                    for (check: CheckBox in frutas) {
+                        check.isEnabled = true
+                        //selCreme.clear()
+                    }
+                }
+            }
 
         }
     }
@@ -209,7 +278,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             }
         }
     }
-
 
 
 }
