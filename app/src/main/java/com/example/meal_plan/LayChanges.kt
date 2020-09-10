@@ -50,13 +50,17 @@ class LayChanges {
                 setupView(act.txValor2, "R$ 8,00", false)
                 setupView(act.txValor3, "R$ 10,00", false)
                 setupView(act.txPasso2Desc, "1 Bola Grátis", false)
-                activateCheck(MenuActivity.creme, true)
                 activateCheck(MenuActivity.farinaceos, true)
                 activateCheck(MenuActivity.cereais, true)
                 activateCheck(MenuActivity.frutas, true)
                 limitCountCre = 1
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
+                if (act.radioopt1.isChecked) {
+                    activateCheck(MenuActivity.creme, false)
+                } else {
+                    activateCheck(MenuActivity.creme, true)
+                }
 
             }
             activity.radioButtonTij.isChecked -> {
@@ -68,13 +72,17 @@ class LayChanges {
                 setupView(act.txValor2, "R$ 7,00", false)
                 setupView(act.txValor3, "R$ 10,00", false)
                 setupView(act.txPasso2Desc, "1 Bola Grátis", false)
-                activateCheck(MenuActivity.creme, true)
                 activateCheck(MenuActivity.farinaceos, true)
                 activateCheck(MenuActivity.cereais, true)
                 activateCheck(MenuActivity.frutas, true)
                 limitCountCre = 1
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
+                if (act.radioopt1.isChecked) {
+                    activateCheck(MenuActivity.creme, false)
+                } else {
+                    activateCheck(MenuActivity.creme, true)
+                }
 
             }
             activity.radioButtonTac.isChecked -> {
@@ -86,13 +94,17 @@ class LayChanges {
                 setupView(act.txValor2, "R$ 10,00", false)
                 setupView(act.txValor3, "R$ 15,00", false)
                 setupView(act.txPasso2Desc, "1 Bola Grátis", false)
-                activateCheck(MenuActivity.creme, true)
                 activateCheck(MenuActivity.farinaceos, true)
                 activateCheck(MenuActivity.cereais, true)
                 activateCheck(MenuActivity.frutas, true)
                 limitCountCre = 1
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
+                if (act.radioopt1.isChecked) {
+                    activateCheck(MenuActivity.creme, false)
+                } else {
+                    activateCheck(MenuActivity.creme, true)
+                }
 
             }
         }
@@ -142,18 +154,30 @@ class LayChanges {
                 tx.text = "2 Opções"
             }
             setLimit(act.radioopt1)
+            activateCheck(MenuActivity.creme, false)
+            activateCheck(MenuActivity.farinaceos, true)
+            activateCheck(MenuActivity.cereais, true)
+            activateCheck(MenuActivity.frutas, true)
         }
         act.radioopt2.setOnClickListener {
             act.txPasso3Desc.text = text
             act.txPasso5Desc.text = text
             act.txPasso4Desc.text = "4 Opções"
             setLimit(act.radioopt2)
+            activateCheck(MenuActivity.creme, true)
+            activateCheck(MenuActivity.farinaceos, true)
+            activateCheck(MenuActivity.cereais, true)
+            activateCheck(MenuActivity.frutas, true)
         }
         act.radioopt3.setOnClickListener {
             act.txPasso3Desc.text = text
             act.txPasso5Desc.text = text
             act.txPasso4Desc.text = "4 Opções"
             setLimit(act.radioopt3)
+            activateCheck(MenuActivity.creme, true)
+            activateCheck(MenuActivity.farinaceos, true)
+            activateCheck(MenuActivity.cereais, true)
+            activateCheck(MenuActivity.frutas, true)
         }
     }
 
