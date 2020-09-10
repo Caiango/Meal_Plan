@@ -15,8 +15,10 @@ import kotlinx.android.synthetic.main.row_mhs.view.*
 lateinit var act: Activity
 
 class LayChanges {
-    var limitCount = 0
+    var limitCountCre = 0
     var limitCountFar = 0
+    var limitCountCer = 0
+    var limitCountFru = 0
     fun changePass(activity: Activity) {
         act = activity
 
@@ -32,7 +34,6 @@ class LayChanges {
                 setupView(act.txPasso2Desc, "Apenas Adicional / Passo 7", false)
                 activateCheck(MenuActivity.creme, false)
                 getValueTam()
-                limitCountFar = 2
                 changeDesCop(MenuActivity.desc, "")
 
 
@@ -47,7 +48,7 @@ class LayChanges {
                 setupView(act.txValor3, "R$ 10,00", false)
                 setupView(act.txPasso2Desc, "1 Bola Grátis", false)
                 activateCheck(MenuActivity.creme, true)
-                limitCount = 1
+                limitCountCre = 1
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
 
@@ -62,7 +63,7 @@ class LayChanges {
                 setupView(act.txValor3, "R$ 10,00", false)
                 setupView(act.txPasso2Desc, "1 Bola Grátis", false)
                 activateCheck(MenuActivity.creme, true)
-                limitCount = 1
+                limitCountCre = 1
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
 
@@ -77,7 +78,7 @@ class LayChanges {
                 setupView(act.txValor3, "R$ 15,00", false)
                 setupView(act.txPasso2Desc, "1 Bola Grátis", false)
                 activateCheck(MenuActivity.creme, true)
-                limitCount = 1
+                limitCountCre = 1
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
 
@@ -119,6 +120,8 @@ class LayChanges {
             check.isChecked = false
             check.isEnabled = isEnable
 
+            MenuActivity.countCrem = 0
+
         }
     }
 
@@ -128,14 +131,49 @@ class LayChanges {
             for (tx: TextView in v) {
                 tx.text = "2 Opções"
             }
+            setLimit(act.radioopt1)
+            Toast.makeText(act.applicationContext, "op1", Toast.LENGTH_LONG).show()
         }
         act.radioopt2.setOnClickListener {
             act.txPasso3Desc.text = text
             act.txPasso5Desc.text = text
             act.txPasso4Desc.text = "4 Opções"
+            setLimit(act.radioopt2)
+        }
+        act.radioopt3.setOnClickListener {
+            act.txPasso3Desc.text = text
+            act.txPasso5Desc.text = text
+            act.txPasso4Desc.text = "4 Opções"
+            setLimit(act.radioopt3)
+        }
+    }
+
+    //seta o limitadores
+    fun setLimit(v: View) {
+        if (v is RadioButton) {
+            when {
+                v.isChecked && v == act.radioopt1 -> {
+                    limitCountFar = 2
+                    limitCountCer = 2
+                    limitCountFru = 2
+                }
+                v.isChecked && v == act.radioopt2 -> {
+                    Toast.makeText(act.applicationContext, "op2", Toast.LENGTH_LONG).show()
+                    limitCountFar = 3
+                    limitCountCer = 4
+                    limitCountFru = 3
+                }
+                v.isChecked && v == act.radioopt3 -> {
+                    Toast.makeText(act.applicationContext, "op3", Toast.LENGTH_LONG).show()
+                    limitCountFar = 3
+                    limitCountCer = 4
+                    limitCountFru = 3
+                }
+            }
         }
     }
 }
+
 
 
 

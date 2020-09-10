@@ -7,6 +7,7 @@ import androidx.core.view.isInvisible
 import com.example.meal_plan.LayChanges
 import com.example.meal_plan.MainActivity
 import com.example.meal_plan.R
+import com.example.meal_plan.act
 import kotlinx.android.synthetic.main.activity_radio.*
 import java.lang.Exception
 
@@ -22,6 +23,11 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         var frutas: ArrayList<CheckBox> = ArrayList()
         var cobertura: ArrayList<CheckBox> = ArrayList()
         var desc: ArrayList<TextView> = ArrayList()
+        var countCrem = 0
+        var countFar = 0
+        var countCer = 0
+        var countFru = 0
+        var teste = 0
     }
 
 
@@ -30,15 +36,12 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     lateinit var rbGroup2: RadioButton
 
 
-    var count = 0
-    var countFar = 0
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_radio)
 
 
+        //adicionando os checkbox nos arrays
         creme.add(cb21)
         creme.add(cb22)
         creme.add(cb23)
@@ -51,19 +54,58 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         farinaceos.add(cb34)
         farinaceos.add(cb35)
         farinaceos.add(cb36)
+        cereais.add(cb41)
+        cereais.add(cb42)
+        cereais.add(cb43)
+        cereais.add(cb44)
+        cereais.add(cb45)
+        cereais.add(cb46)
+        cereais.add(cb47)
+        cereais.add(cb48)
+        frutas.add(cb51)
+        frutas.add(cb52)
+        frutas.add(cb53)
+        frutas.add(cb54)
+        frutas.add(cb55)
+        cobertura.add(cb61)
+        cobertura.add(cb62)
+        cobertura.add(cb63)
+        cobertura.add(cb64)
+        cobertura.add(cb65)
         desc.add(txPasso3Desc)
         desc.add(txPasso4Desc)
         desc.add(txPasso5Desc)
 
+
+        //setando os setOnCheckedChanged nos checkbox
         cb21.setOnCheckedChangeListener(this)
         cb22.setOnCheckedChangeListener(this)
         cb23.setOnCheckedChangeListener(this)
         cb24.setOnCheckedChangeListener(this)
         cb25.setOnCheckedChangeListener(this)
         cb26.setOnCheckedChangeListener(this)
+        cb31.setOnCheckedChangeListener(onCheckedChangeFar())
+        cb32.setOnCheckedChangeListener(onCheckedChangeFar())
+        cb33.setOnCheckedChangeListener(onCheckedChangeFar())
+        cb34.setOnCheckedChangeListener(onCheckedChangeFar())
+        cb35.setOnCheckedChangeListener(onCheckedChangeFar())
+        cb36.setOnCheckedChangeListener(onCheckedChangeFar())
+        cb41.setOnCheckedChangeListener(onCheckedChangeCereal())
+        cb42.setOnCheckedChangeListener(onCheckedChangeCereal())
+        cb43.setOnCheckedChangeListener(onCheckedChangeCereal())
+        cb44.setOnCheckedChangeListener(onCheckedChangeCereal())
+        cb45.setOnCheckedChangeListener(onCheckedChangeCereal())
+        cb46.setOnCheckedChangeListener(onCheckedChangeCereal())
+        cb47.setOnCheckedChangeListener(onCheckedChangeCereal())
+        cb48.setOnCheckedChangeListener(onCheckedChangeCereal())
+        cb51.setOnCheckedChangeListener(onCheckedChangeFruta())
+        cb52.setOnCheckedChangeListener(onCheckedChangeFruta())
+        cb53.setOnCheckedChangeListener(onCheckedChangeFruta())
+        cb54.setOnCheckedChangeListener(onCheckedChangeFruta())
+        cb55.setOnCheckedChangeListener(onCheckedChangeFruta())
 
 
-
+        //chamando a alteração de layout da classe laychanges
         radioButtonCopo.setOnClickListener { mLay.changePass(this) }
         radioButtonIso.setOnClickListener { mLay.changePass(this) }
         radioButtonTac.setOnClickListener { mLay.changePass(this) }
@@ -80,8 +122,8 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     override fun onCheckedChanged(cb: CompoundButton?, isChecked: Boolean) {
 
         if (isChecked) {
-            count++
-            if (count == mLay.limitCount) {
+            countCrem++
+            if (countCrem == mLay.limitCountCre) {
                 for (check: CheckBox in creme) {
                     check.isEnabled = check.isChecked
                     if (check.isChecked) {
@@ -91,8 +133,8 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                 }
             }
         } else {
-            count--
-            if (count < 1) {
+            countCrem--
+            if (countCrem in 0..1) {
                 for (check: CheckBox in creme) {
                     check.isEnabled = true
                     selCreme.clear()
@@ -116,7 +158,58 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         }
     }
 
-    
+    fun onCheckedChangeFar(): CompoundButton.OnCheckedChangeListener {
+
+        return CompoundButton.OnCheckedChangeListener { cb, isChecked ->
+
+            checkedValidator(countFar, isChecked, farinaceos, mLay.limitCountFar)
+
+        }
+    }
+
+    fun onCheckedChangeCereal(): CompoundButton.OnCheckedChangeListener {
+
+        return CompoundButton.OnCheckedChangeListener { cb, isChecked ->
+
+            checkedValidator(countCer, isChecked, cereais, mLay.limitCountCer)
+
+        }
+    }
+
+    fun onCheckedChangeFruta(): CompoundButton.OnCheckedChangeListener {
+
+        return CompoundButton.OnCheckedChangeListener { cb, isChecked ->
+
+            checkedValidator(countFru, isChecked, frutas, mLay.limitCountFru)
+
+        }
+    }
+
+    //setando e validando contador e array dos checkbox para chamar no on checked changed
+    fun checkedValidator(ct: Int, isChecked: Boolean, array: ArrayList<CheckBox>, limit: Int) {
+        //var c = 0
+        if (isChecked) {
+            teste++
+            if (teste == limit) {
+                for (check: CheckBox in array) {
+                    check.isEnabled = check.isChecked
+//                    if (check.isChecked) {
+//                        selCreme.add(check.text.toString())
+//
+//                    }
+                }
+            }
+        } else {
+            teste--
+            if (teste in 0 until limit) {
+                for (check: CheckBox in array) {
+                    check.isEnabled = true
+                    //selCreme.clear()
+                }
+            }
+        }
+    }
+
 
 
 }
