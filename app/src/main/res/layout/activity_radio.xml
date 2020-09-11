@@ -60,17 +60,29 @@
                 android:text="Taça" />
         </RadioGroup>
 
+        <View
+            android:id="@+id/viewPasso"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@android:color/holo_purple"
+            app:layout_constraintEnd_toEndOf="@id/guideline9"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline8"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/txPasso1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="PASSO 1: ESCOLHA O TAMANHO"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/viewPasso" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline10"
@@ -111,7 +123,7 @@
         <View
             android:id="@+id/viewPasso1"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_purple"
             app:layout_constraintEnd_toEndOf="@id/guideline9"
@@ -153,11 +165,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="PASSO 2: ESCOLHA OS CREMES"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toTopOf="@id/viewPasso1" />
+            app:layout_constraintTop_toTopOf="@+id/viewPasso1" />
 
         <TextView
             android:id="@+id/txPasso2Desc"
@@ -166,7 +179,7 @@
             android:text="ESCOLHAS"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/txPasso2" />
+            app:layout_constraintTop_toBottomOf="@+id/viewPasso1" />
 
         <CheckBox
             android:id="@+id/cb21"
@@ -229,7 +242,7 @@
         <View
             android:id="@+id/viewPasso2"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_purple"
             app:layout_constraintEnd_toEndOf="@id/guideline9"
@@ -242,11 +255,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="PASSO 3: ESCOLHA OS FARINÁCEOS"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toTopOf="@id/viewPasso2" />
+            app:layout_constraintTop_toTopOf="@+id/viewPasso2" />
 
         <TextView
             android:id="@+id/txPasso3Desc"
@@ -255,7 +269,7 @@
             android:text="ESCOLHAS"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/txPasso3" />
+            app:layout_constraintTop_toBottomOf="@+id/viewPasso2" />
 
         <CheckBox
             android:id="@+id/cb31"
@@ -317,7 +331,7 @@
         <View
             android:id="@+id/viewPasso3"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_purple"
             app:layout_constraintEnd_toEndOf="@id/guideline9"
@@ -330,11 +344,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="PASSO 4: ESCOLHA OS CEREAIS"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toTopOf="@id/viewPasso3" />
+            app:layout_constraintTop_toTopOf="@+id/viewPasso3" />
 
         <TextView
             android:id="@+id/txPasso4Desc"
@@ -343,7 +358,7 @@
             android:text="ESCOLHAS"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/txPasso4" />
+            app:layout_constraintTop_toBottomOf="@+id/viewPasso3" />
 
         <CheckBox
             android:id="@+id/cb41"
@@ -423,7 +438,7 @@
         <View
             android:id="@+id/viewPasso4"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_purple"
             app:layout_constraintEnd_toEndOf="@id/guideline9"
@@ -436,11 +451,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="PASSO 5: ESCOLHA AS FRUTAS"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toTopOf="@id/viewPasso4" />
+            app:layout_constraintTop_toTopOf="@+id/viewPasso4" />
 
         <TextView
             android:id="@+id/txPasso5Desc"
@@ -449,7 +465,7 @@
             android:text="ESCOLHAS"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/txPasso5" />
+            app:layout_constraintTop_toBottomOf="@+id/viewPasso4" />
 
         <CheckBox
             android:id="@+id/cb51"
@@ -502,7 +518,7 @@
         <View
             android:id="@+id/viewPasso5"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_purple"
             app:layout_constraintEnd_toEndOf="@id/guideline9"
@@ -515,6 +531,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="PASSO 6: ESCOLHA SUA COBERTURA"
+            android:textColor="#ffffff"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
@@ -528,7 +545,7 @@
             android:text="ESCOLHA LIVRE"
             app:layout_constraintEnd_toStartOf="@+id/guideline9"
             app:layout_constraintStart_toStartOf="@+id/guideline8"
-            app:layout_constraintTop_toBottomOf="@+id/txPasso6" />
+            app:layout_constraintTop_toBottomOf="@+id/viewPasso5" />
 
         <CheckBox
             android:id="@+id/cb61"
@@ -581,7 +598,7 @@
         <View
             android:id="@+id/viewPasso6"
             android:layout_width="0dp"
-            android:layout_height="1dp"
+            android:layout_height="40dp"
             android:layout_marginTop="8dp"
             android:background="@android:color/holo_purple"
             app:layout_constraintEnd_toEndOf="@id/guideline9"
