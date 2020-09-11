@@ -24,7 +24,7 @@ class SelectActivity : AppCompatActivity() {
         }
 
         cardapio_image.setOnClickListener {
-            val intent = Intent(applicationContext, MenuActivity::class.java)
+            val intent = Intent(applicationContext, Menu1Activity::class.java)
             startActivity(intent)
         }
 

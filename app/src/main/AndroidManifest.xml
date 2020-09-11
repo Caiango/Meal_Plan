@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activities.Menu1Activity"></activity>
         <activity android:name=".activities.MenuActivity" />
         <activity
             android:name=".activities.SelectActivity"
