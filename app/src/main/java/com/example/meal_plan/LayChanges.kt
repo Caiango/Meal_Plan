@@ -53,7 +53,7 @@ class LayChanges {
                 activateCheck(MenuActivity.farinaceos, true)
                 activateCheck(MenuActivity.cereais, true)
                 activateCheck(MenuActivity.frutas, true)
-                limitCountCre = 1
+                limitCountCre = 0
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
                 if (act.radioopt1.isChecked) {
@@ -75,7 +75,7 @@ class LayChanges {
                 activateCheck(MenuActivity.farinaceos, true)
                 activateCheck(MenuActivity.cereais, true)
                 activateCheck(MenuActivity.frutas, true)
-                limitCountCre = 1
+                limitCountCre = 0
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
                 if (act.radioopt1.isChecked) {
@@ -97,7 +97,7 @@ class LayChanges {
                 activateCheck(MenuActivity.farinaceos, true)
                 activateCheck(MenuActivity.cereais, true)
                 activateCheck(MenuActivity.frutas, true)
-                limitCountCre = 1
+                limitCountCre = 0
                 getValueTam()
                 changeDesCop(MenuActivity.desc, "3 Opções")
                 if (act.radioopt1.isChecked) {
@@ -137,8 +137,34 @@ class LayChanges {
         }
     }
 
+    fun getValueCheck(ac: ArrayList<CheckBox>) {
+
+        when {
+            ac == MenuActivity.creme -> {
+                for (check: CheckBox in ac) {
+                    if (check.isChecked) {
+                        MenuActivity.chosenCreme = ""
+                        var tx = check.text.toString().trim()
+                        MenuActivity.chosenCreme += tx
+                        Toast.makeText(
+                            act.applicationContext,
+                            MenuActivity.chosenCreme,
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                }
+            }
+        }
+
+
+    }
+
     //desmarca as checkbox e deixa selecionavel
     fun activateCheck(v: ArrayList<CheckBox>, isEnable: Boolean) {
+        MenuActivity.countCrem = 0
+        MenuActivity.countFar = 0
+        MenuActivity.countCer = 0
+        MenuActivity.countFru = 0
         for (check: CheckBox in v) {
 
             check.isChecked = false
@@ -186,16 +212,19 @@ class LayChanges {
         if (v is RadioButton) {
             when {
                 v.isChecked && v == act.radioopt1 -> {
+                    limitCountCre = 1
                     limitCountFar = 2
                     limitCountCer = 2
                     limitCountFru = 2
                 }
                 v.isChecked && v == act.radioopt2 -> {
+                    limitCountCre = 1
                     limitCountFar = 3
                     limitCountCer = 4
                     limitCountFru = 3
                 }
                 v.isChecked && v == act.radioopt3 -> {
+                    limitCountCre = 1
                     limitCountFar = 3
                     limitCountCer = 4
                     limitCountFru = 3

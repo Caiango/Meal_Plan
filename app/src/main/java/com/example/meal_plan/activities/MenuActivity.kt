@@ -31,6 +31,17 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         var countCer = 0
         var countFru = 0
         var teste = 0
+        //var para armazenar as escolhas do usuário
+        var chosenTam = ""
+        var chosenCreme = ""
+        var chosenFar = ""
+        var chosenCer = ""
+        var chosenFru = ""
+        var chosenCob = ""
+        var chosenAdc = ""
+        var chosenObs = ""
+        var pedido = "Tamanho: $chosenTam, Cremes: $chosenCreme, Farináceos: $chosenFar, Cereais: $chosenCer, Frutas: $chosenFru, Cobertura: $chosenCob. Adicionais: $chosenAdc. Obs: $chosenObs"
+
     }
 
 
@@ -121,6 +132,8 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         txValor2.isInvisible = true
         txValor3.isInvisible = true
 
+        btnPed.setOnClickListener { mLay.getValueCheck(creme) }
+
     }
 
     //função checkedChanged Creme
@@ -139,7 +152,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             }
         } else {
             countCrem--
-            if (countCrem in 0..1) {
+            if (countCrem in 0 until mLay.limitCountCre) {
                 for (check: CheckBox in creme) {
                     check.isEnabled = true
                     selCreme.clear()
