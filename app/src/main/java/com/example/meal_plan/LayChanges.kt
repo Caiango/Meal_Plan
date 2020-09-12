@@ -19,6 +19,8 @@ class LayChanges {
     var limitCountFar = 0
     var limitCountCer = 0
     var limitCountFru = 0
+
+
     fun changePass(activity: Activity) {
         act = activity
 
@@ -137,23 +139,91 @@ class LayChanges {
         }
     }
 
-    fun getValueCheck(ac: ArrayList<CheckBox>) {
+
+    //função que obtem as escolhas feitas pelo usuário em todos os passos no click do botao CONFIMAR PEDIDO
+    fun getValueCheck(checkArray: ArrayList<CheckBox>) {
 
         when {
-            ac == MenuActivity.creme -> {
-                for (check: CheckBox in ac) {
+            checkArray == MenuActivity.creme -> {
+                for (check: CheckBox in checkArray) {
                     if (check.isChecked) {
                         MenuActivity.chosenCreme = ""
                         var tx = check.text.toString().trim()
-                        MenuActivity.chosenCreme += tx
-                        Toast.makeText(
-                            act.applicationContext,
-                            MenuActivity.chosenCreme,
-                            Toast.LENGTH_LONG
-                        ).show()
+                        MenuActivity.chosenCreme = tx
+//                        Toast.makeText(
+//                            act.applicationContext,
+//                            MenuActivity.chosenCreme,
+//                            Toast.LENGTH_LONG
+//                        ).show()
+
                     }
                 }
             }
+
+            checkArray == MenuActivity.farinaceos -> {
+                var arrayFar: ArrayList<String> = ArrayList()
+                arrayFar.clear()
+                MenuActivity.chosenFar = ""
+                for (check: CheckBox in checkArray) {
+                    if (check.isChecked) {
+                        var tx = check.text.toString().trim()
+                        arrayFar.add(tx)
+                    }
+                }
+
+                for (element in arrayFar) {
+                    MenuActivity.chosenFar = MenuActivity.chosenFar + " $element" + ","
+                }
+            }
+
+            checkArray == MenuActivity.cereais -> {
+                var arrayCer: ArrayList<String> = ArrayList()
+                arrayCer.clear()
+                MenuActivity.chosenCer = ""
+                for (check: CheckBox in checkArray) {
+                    if (check.isChecked) {
+                        var tx = check.text.toString().trim()
+                        arrayCer.add(tx)
+                    }
+                }
+
+                for (element in arrayCer) {
+                    MenuActivity.chosenCer = MenuActivity.chosenCer + " $element" + ","
+                }
+            }
+
+            checkArray == MenuActivity.frutas -> {
+                var arrayFru: ArrayList<String> = ArrayList()
+                arrayFru.clear()
+                MenuActivity.chosenFru = ""
+                for (check: CheckBox in checkArray) {
+                    if (check.isChecked) {
+                        var tx = check.text.toString().trim()
+                        arrayFru.add(tx)
+                    }
+                }
+
+                for (element in arrayFru) {
+                    MenuActivity.chosenFru = MenuActivity.chosenFru + " $element" + ","
+                }
+            }
+
+            checkArray == MenuActivity.cobertura -> {
+                var arrayCob: ArrayList<String> = ArrayList()
+                arrayCob.clear()
+                MenuActivity.chosenCob = ""
+                for (check: CheckBox in checkArray) {
+                    if (check.isChecked) {
+                        var tx = check.text.toString().trim()
+                        arrayCob.add(tx)
+                    }
+                }
+
+                for (element in arrayCob) {
+                    MenuActivity.chosenCob = MenuActivity.chosenCob + " $element" + ","
+                }
+            }
+
         }
 
 
@@ -233,12 +303,3 @@ class LayChanges {
         }
     }
 }
-
-
-
-
-
-
-
-
-

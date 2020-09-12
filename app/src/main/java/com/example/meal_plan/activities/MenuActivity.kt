@@ -23,14 +23,17 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         var cereais: ArrayList<CheckBox> = ArrayList()
         var frutas: ArrayList<CheckBox> = ArrayList()
         var cobertura: ArrayList<CheckBox> = ArrayList()
+
         //var para armazenar todos os textviews das descrições
         var desc: ArrayList<TextView> = ArrayList()
+
         //var para armazenar os contadores de marcação dos checkbox
         var countCrem = 0
         var countFar = 0
         var countCer = 0
         var countFru = 0
         var teste = 0
+
         //var para armazenar as escolhas do usuário
         var chosenTam = ""
         var chosenCreme = ""
@@ -40,7 +43,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         var chosenCob = ""
         var chosenAdc = ""
         var chosenObs = ""
-        var pedido = "Tamanho: $chosenTam, Cremes: $chosenCreme, Farináceos: $chosenFar, Cereais: $chosenCer, Frutas: $chosenFru, Cobertura: $chosenCob. Adicionais: $chosenAdc. Obs: $chosenObs"
+        var pedido = ""
 
     }
 
@@ -68,7 +71,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         farinaceos.add(cb33)
         farinaceos.add(cb34)
         farinaceos.add(cb35)
-        farinaceos.add(cb36)
         cereais.add(cb41)
         cereais.add(cb42)
         cereais.add(cb43)
@@ -104,7 +106,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         cb33.setOnCheckedChangeListener(onCheckedChangeFar())
         cb34.setOnCheckedChangeListener(onCheckedChangeFar())
         cb35.setOnCheckedChangeListener(onCheckedChangeFar())
-        cb36.setOnCheckedChangeListener(onCheckedChangeFar())
         cb41.setOnCheckedChangeListener(onCheckedChangeCereal())
         cb42.setOnCheckedChangeListener(onCheckedChangeCereal())
         cb43.setOnCheckedChangeListener(onCheckedChangeCereal())
@@ -132,7 +133,16 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         txValor2.isInvisible = true
         txValor3.isInvisible = true
 
-        btnPed.setOnClickListener { mLay.getValueCheck(creme) }
+        btnPed.setOnClickListener {
+            mLay.getValueCheck(creme)
+            mLay.getValueCheck(farinaceos)
+            mLay.getValueCheck(cereais)
+            mLay.getValueCheck(frutas)
+            mLay.getValueCheck(cobertura)
+            pedido =
+                "Tamanho: $chosenTam, Cremes: $chosenCreme, Farináceos: $chosenFar Cereais: $chosenCer Frutas: $chosenFru Cobertura: $chosenCob Adicionais: $chosenAdc. Obs: $chosenObs"
+            Toast.makeText(applicationContext, pedido, Toast.LENGTH_LONG).show()
+        }
 
     }
 
