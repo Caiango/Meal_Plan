@@ -302,22 +302,4 @@ class LayChanges {
             }
         }
     }
-
-    //função para obter o tamanho do açaí
-    fun getTamText() {
-        when {
-            act.radioopt1.isChecked -> {
-                var tx = act.radioopt1.text.toString()
-                MenuActivity.chosenTam = tx
-            }
-            act.radioopt2.isChecked -> {
-                var tx = act.radioopt2.text.toString()
-                MenuActivity.chosenTam = tx
-            }
-            act.radioopt3.isChecked -> {
-                var tx = act.radioopt3.text.toString()
-                MenuActivity.chosenTam = tx
-            }
-        }
-    }
 }

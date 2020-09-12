@@ -47,17 +47,11 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
     }
 
-
-    //var para armazenar os textos dos checkbox selecionados
-    var selCreme: ArrayList<String> = ArrayList()
-
     lateinit var rbGroup2: RadioButton
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_radio)
-
 
         //adicionando os checkbox nos arrays
         creme.add(cb21)
@@ -92,7 +86,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         desc.add(txPasso3Desc)
         desc.add(txPasso4Desc)
         desc.add(txPasso5Desc)
-
 
         //setando os setOnCheckedChanged nos checkbox
         cb21.setOnCheckedChangeListener(this)
@@ -133,13 +126,14 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         txValor2.isInvisible = true
         txValor3.isInvisible = true
 
+        //botão confirmar
         btnPed.setOnClickListener {
             mLay.getValueCheck(creme)
             mLay.getValueCheck(farinaceos)
             mLay.getValueCheck(cereais)
             mLay.getValueCheck(frutas)
             mLay.getValueCheck(cobertura)
-            mLay.getTamText()
+            onChangedRadio()
             pedido =
                 "Tamanho: $chosenTam, Cremes: $chosenCreme, Farináceos: $chosenFar Cereais: $chosenCer Frutas: $chosenFru Cobertura: $chosenCob Adicionais: $chosenAdc. Obs: $chosenObs"
             Toast.makeText(applicationContext, pedido, Toast.LENGTH_LONG).show()
@@ -155,10 +149,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             if (countCrem == mLay.limitCountCre) {
                 for (check: CheckBox in creme) {
                     check.isEnabled = check.isChecked
-                    if (check.isChecked) {
-                        selCreme.add(check.text.toString())
 
-                    }
                 }
             }
         } else {
@@ -166,7 +157,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             if (countCrem in 0 until mLay.limitCountCre) {
                 for (check: CheckBox in creme) {
                     check.isEnabled = true
-                    selCreme.clear()
+
                 }
             }
         }
@@ -174,13 +165,13 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
     }
 
-
     //funçao para obter os valores do elemento do radiogroup2 marcado
     fun onChangedRadio() {
         try {
             var selectID = radioGroup2.checkedRadioButtonId
             rbGroup2 = findViewById(selectID)
-            Toast.makeText(applicationContext, rbGroup2.text, Toast.LENGTH_LONG).show()
+            chosenTam = rbGroup2.text.toString()
+
         } catch (e: Exception) {
             Toast.makeText(applicationContext, "Não foi selecionado um tamanho", Toast.LENGTH_LONG)
                 .show()
@@ -217,7 +208,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
 
     }
 
-
     //função checkedChanged Cereal
     fun onCheckedChangeCereal(): CompoundButton.OnCheckedChangeListener {
 
@@ -247,7 +237,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         }
 
     }
-
 
     //função checkedChanged Frutas
     fun onCheckedChangeFruta(): CompoundButton.OnCheckedChangeListener {
@@ -286,10 +275,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             if (teste == limit) {
                 for (check: CheckBox in array) {
                     check.isEnabled = check.isChecked
-//                    if (check.isChecked) {
-//                        selCreme.add(check.text.toString())
-//
-//                    }
                 }
             }
         } else {
@@ -297,7 +282,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             if (teste in 0 until limit) {
                 for (check: CheckBox in array) {
                     check.isEnabled = true
-                    //selCreme.clear()
                 }
             }
         }
