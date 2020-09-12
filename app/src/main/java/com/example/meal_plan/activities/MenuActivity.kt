@@ -139,6 +139,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             mLay.getValueCheck(cereais)
             mLay.getValueCheck(frutas)
             mLay.getValueCheck(cobertura)
+            mLay.getTamText()
             pedido =
                 "Tamanho: $chosenTam, Cremes: $chosenCreme, Farináceos: $chosenFar Cereais: $chosenCer Frutas: $chosenFru Cobertura: $chosenCob Adicionais: $chosenAdc. Obs: $chosenObs"
             Toast.makeText(applicationContext, pedido, Toast.LENGTH_LONG).show()

@@ -21,6 +21,7 @@ class LayChanges {
     var limitCountFru = 0
 
 
+    //alterando layout
     fun changePass(activity: Activity) {
         act = activity
 
@@ -138,7 +139,6 @@ class LayChanges {
             }
         }
     }
-
 
     //função que obtem as escolhas feitas pelo usuário em todos os passos no click do botao CONFIMAR PEDIDO
     fun getValueCheck(checkArray: ArrayList<CheckBox>) {
@@ -299,6 +299,24 @@ class LayChanges {
                     limitCountCer = 4
                     limitCountFru = 3
                 }
+            }
+        }
+    }
+
+    //função para obter o tamanho do açaí
+    fun getTamText() {
+        when {
+            act.radioopt1.isChecked -> {
+                var tx = act.radioopt1.text.toString()
+                MenuActivity.chosenTam = tx
+            }
+            act.radioopt2.isChecked -> {
+                var tx = act.radioopt2.text.toString()
+                MenuActivity.chosenTam = tx
+            }
+            act.radioopt3.isChecked -> {
+                var tx = act.radioopt3.text.toString()
+                MenuActivity.chosenTam = tx
             }
         }
     }
