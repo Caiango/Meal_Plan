@@ -43,7 +43,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         var chosenCer = ""
         var chosenFru = ""
         var chosenCob = ""
-        var chosenAdc = ""
         var chosenObs = ""
         var pedido = ""
 
@@ -139,7 +138,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             mLay.getValueCheck(cobertura)
             onChangedRadio()
             pedido =
-                "Tamanho: $chosenTam, Cremes: $chosenCreme, Farináceos: $chosenFar Cereais: $chosenCer Frutas: $chosenFru Cobertura: $chosenCob Adicionais: $chosenAdc. Obs: $chosenObs"
+                "TAMANHO: $chosenTam,\nCREMES: $chosenCreme,\nFARINÁCEOS: $chosenFar\nCEREAIS: $chosenCer\nFRUTAS: $chosenFru\nCOBERTURA: $chosenCob\nOBS: $chosenObs"
             //Toast.makeText(applicationContext, pedido, Toast.LENGTH_LONG).show()
             builder.setTitle("Confirma seu Pedido?")
             builder.setMessage(pedido)
@@ -151,11 +150,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             }
             builder.show()
         }
-
-
-
-
-
 
     }
 
