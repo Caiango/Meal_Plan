@@ -1,7 +1,9 @@
 package com.example.meal_plan.activities
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.widget.*
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import com.example.meal_plan.LayChanges
@@ -52,6 +54,8 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_radio)
+
+        val builder = AlertDialog.Builder(this)
 
         //adicionando os checkbox nos arrays
         creme.add(cb21)
@@ -136,8 +140,22 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             onChangedRadio()
             pedido =
                 "Tamanho: $chosenTam, Cremes: $chosenCreme, Farináceos: $chosenFar Cereais: $chosenCer Frutas: $chosenFru Cobertura: $chosenCob Adicionais: $chosenAdc. Obs: $chosenObs"
-            Toast.makeText(applicationContext, pedido, Toast.LENGTH_LONG).show()
+            //Toast.makeText(applicationContext, pedido, Toast.LENGTH_LONG).show()
+            builder.setTitle("Confirma seu Pedido?")
+            builder.setMessage(pedido)
+            builder.setPositiveButton("Sim") { dialogInterface: DialogInterface, i: Int ->
+                Toast.makeText(applicationContext, "Concordou", Toast.LENGTH_LONG).show()
+            }
+            builder.setNegativeButton("Não") { dialogInterface: DialogInterface, i: Int ->
+                Toast.makeText(applicationContext, "Não concordou", Toast.LENGTH_LONG).show()
+            }
+            builder.show()
         }
+
+
+
+
+
 
     }
 
