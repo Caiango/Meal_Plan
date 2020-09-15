@@ -15,5 +15,10 @@ class Menu1Activity : AppCompatActivity() {
             val intent = Intent(applicationContext, MenuActivity::class.java)
             startActivity(intent)
         }
+
+        img_hamb.setOnClickListener {
+            val intent = Intent(applicationContext, HambActivity::class.java)
+            startActivity(intent)
+        }
     }
 }
