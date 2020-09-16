@@ -20,5 +20,10 @@ class Menu1Activity : AppCompatActivity() {
             val intent = Intent(applicationContext, HambActivity::class.java)
             startActivity(intent)
         }
+
+        imgbacksel.setOnClickListener {
+            val intent = Intent(applicationContext, SelectActivity::class.java)
+            startActivity(intent)
+        }
     }
 }

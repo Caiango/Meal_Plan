@@ -1,6 +1,8 @@
 package com.example.meal_plan.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -15,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.meal_plan.AdapterHamb;
+import com.example.meal_plan.ListItem;
 import com.example.meal_plan.R;
 
 import java.util.ArrayList;
@@ -24,7 +28,12 @@ public class HambActivity extends AppCompatActivity implements View.OnClickListe
 
 
     ImageView imgbackham;
-    ArrayList<Integer> arrayimg;
+    RecyclerView rvHamb;
+    RecyclerView.Adapter adapter;
+
+    private List<String> testelist;
+
+    private List<ListItem> listItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +43,28 @@ public class HambActivity extends AppCompatActivity implements View.OnClickListe
         imgbackham = findViewById(R.id.imgbackham);
         imgbackham.setOnClickListener(this);
 
+        rvHamb = findViewById(R.id.rv_hamb);
+        rvHamb.setHasFixedSize(true);
+        rvHamb.setLayoutManager(new LinearLayoutManager(this));
+
+        listItems = new ArrayList<>();
+        testelist = new ArrayList<>();
+
+        for (int x = 1; x <= 11; x++) {
+            testelist.add("Titulo " + x);
+        }
+
+        for (int i = 0; i <= 10; i++) {
+            ListItem listItem = new ListItem(
+                    testelist.get(i),
+                    "Loren ipsum dummy text. \nEssa é a descrição do produto."
+            );
+
+            listItems.add(listItem);
+        }
+        adapter = new AdapterHamb(listItems, this);
+
+        rvHamb.setAdapter(adapter);
     }
 
 

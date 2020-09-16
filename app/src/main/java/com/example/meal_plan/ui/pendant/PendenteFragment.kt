@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.android.volley.Request
-import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.example.meal_plan.AdapterDataMhs
@@ -33,7 +32,6 @@ class PendenteFragment : Fragment() {
         homeViewModel =
             ViewModelProviders.of(this).get(PendenteViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_pendant, container, false)
-//        val textView: TextView = root.findViewById(R.id.text_home
         mhsAdapter = AdapterDataMhs(daftarMhs)
         val lista: RecyclerView = root.findViewById(R.id.listaPed)
         lista.layoutManager = LinearLayoutManager(context)
@@ -44,7 +42,7 @@ class PendenteFragment : Fragment() {
 
     fun showDataMhs() {
         val request = StringRequest(Request.Method.POST, url,
-            Response.Listener { response ->
+            { response ->
                 val jsonArray = JSONArray(response)
                 for (x in 0..(jsonArray.length() - 1)) {
                     val jsonObject = jsonArray.getJSONObject(x)
@@ -56,7 +54,7 @@ class PendenteFragment : Fragment() {
                 }
                 mhsAdapter.notifyDataSetChanged()
             },
-            Response.ErrorListener { error ->
+            { error ->
                 Toast.makeText(context, error.toString(), Toast.LENGTH_LONG).show()
             })
         val queue = Volley.newRequestQueue(context)

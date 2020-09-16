@@ -17,4 +17,10 @@
         android:label="@string/menu_finished"
         tools:layout="@layout/fragment_finished" />
 
+    <fragment
+        android:id="@+id/nav_add"
+        android:name="com.example.meal_plan.ui.pendant.AddFragment"
+        android:label="Adicionar"
+        tools:layout="@layout/fragment_add" />
+
 </navigation>

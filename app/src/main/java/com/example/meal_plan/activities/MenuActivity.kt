@@ -1,17 +1,15 @@
 package com.example.meal_plan.activities
 
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isInvisible
 import com.example.meal_plan.LayChanges
-import com.example.meal_plan.MainActivity
 import com.example.meal_plan.R
-import com.example.meal_plan.act
 import kotlinx.android.synthetic.main.activity_radio.*
-import java.lang.Exception
 
 
 class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener {
@@ -47,6 +45,7 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
         var pedido = ""
 
     }
+
 
     lateinit var rbGroup2: RadioButton
 
@@ -139,7 +138,6 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
             onChangedRadio()
             pedido =
                 "TAMANHO: $chosenTam,\nCREMES: $chosenCreme,\nFARINÁCEOS: $chosenFar\nCEREAIS: $chosenCer\nFRUTAS: $chosenFru\nCOBERTURA: $chosenCob\nOBS: $chosenObs"
-            //Toast.makeText(applicationContext, pedido, Toast.LENGTH_LONG).show()
             builder.setTitle("Confirma seu Pedido?")
             builder.setMessage(pedido)
             builder.setPositiveButton("Sim") { dialogInterface: DialogInterface, i: Int ->
@@ -149,7 +147,21 @@ class MenuActivity : AppCompatActivity(), CompoundButton.OnCheckedChangeListener
                 Toast.makeText(applicationContext, "Não concordou", Toast.LENGTH_LONG).show()
             }
             builder.show()
+
+
         }
+
+        imgbackacai.setOnClickListener {
+            val intent = Intent(
+                applicationContext,
+                Menu1Activity::class.java
+            )
+            startActivity(intent)
+        }
+
+    }
+
+    fun alertDialog(x: AlertDialog) {
 
     }
 

@@ -31,18 +31,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imgbacksel"
+        android:layout_width="43dp"
+        android:layout_height="34dp"
+        android:translationZ="99dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/view2"
+        app:layout_constraintTop_toTopOf="@+id/view2"
+        app:srcCompat="@drawable/abc_vector_test" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginTop="16dp"
         android:text="Olá!"
         android:textSize="50sp"
         android:textStyle="bold"
         android:translationZ="99dp"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
         app:layout_constraintEnd_toStartOf="@+id/guideline9"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/view2" />
 
 
     <ImageView
@@ -75,9 +86,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="ESCOLHA SEU HAMBURGUER"
-        android:translationZ="99dp"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:translationZ="99dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/guideline11" />
