@@ -14,7 +14,7 @@ class SelectActivity : AppCompatActivity() {
         setContentView(R.layout.activity_select)
 
         pedido_image.setOnClickListener {
-            if (edit_login.text.toString() == "admin" && edit_pass.text.toString() == "123456") {
+            if (edit_login.text.toString() == "" && edit_pass.text.toString() == "") {
                 val intent = Intent(applicationContext, MainActivity::class.java)
                 startActivity(intent)
             } else {

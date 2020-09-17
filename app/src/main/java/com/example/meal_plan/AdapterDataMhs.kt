@@ -8,6 +8,7 @@ import android.widget.*
 import androidx.recyclerview.widget.RecyclerView
 import com.example.meal_plan.activities.NestActivity
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.row_mhs.view.*
 
 class AdapterDataMhs(val dataMhs: List<HashMap<String, String>>) :
     RecyclerView.Adapter<AdapterDataMhs.HolderDataMhs>() {

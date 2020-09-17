@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.meal_plan.AdapterHamb;
 import com.example.meal_plan.ListItem;
 import com.example.meal_plan.R;
+import com.example.meal_plan.RestauranteClass;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,9 +32,7 @@ public class HambActivity extends AppCompatActivity implements View.OnClickListe
     RecyclerView rvHamb;
     RecyclerView.Adapter adapter;
 
-    private List<String> testelist;
-
-    private List<ListItem> listItems;
+    private List<RestauranteClass> listItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,23 +47,18 @@ public class HambActivity extends AppCompatActivity implements View.OnClickListe
         rvHamb.setLayoutManager(new LinearLayoutManager(this));
 
         listItems = new ArrayList<>();
-        testelist = new ArrayList<>();
 
-        for (int x = 1; x <= 11; x++) {
-            testelist.add("Titulo " + x);
-        }
+        RestauranteClass res = new RestauranteClass("Comida 1", "Descrição 1", R.mipmap.montar);
+        RestauranteClass res2 = new RestauranteClass("Comida 2", "Descrição 2", R.mipmap.montar);
+        RestauranteClass res3 = new RestauranteClass("Comida 3", "Descrição 3", R.mipmap.montar);
+        RestauranteClass res4 = new RestauranteClass("Comida 4", "Descrição 4", R.mipmap.montar);
 
-        for (int i = 0; i <= 10; i++) {
-            ListItem listItem = new ListItem(
-                    testelist.get(i),
-                    "Loren ipsum dummy text. \nEssa é a descrição do produto."
-            );
+        listItems.add(res);
+        listItems.add(res2);
+        listItems.add(res3);
+        listItems.add(res4);
 
-            listItems.add(listItem);
-        }
-        adapter = new AdapterHamb(listItems, this);
-
-        rvHamb.setAdapter(adapter);
+        rvHamb.setAdapter(new AdapterHamb(listItems, this));
     }
 
 

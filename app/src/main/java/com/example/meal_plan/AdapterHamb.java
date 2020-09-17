@@ -14,10 +14,10 @@ import java.util.List;
 
 public class AdapterHamb extends RecyclerView.Adapter<AdapterHamb.ViewHolder> {
 
-    private List<ListItem> listItems;
+    private List<RestauranteClass> listItems;
     private Context context;
 
-    public AdapterHamb(List<ListItem> listItems, Context context) {
+    public AdapterHamb(List<RestauranteClass> listItems, Context context) {
         this.listItems = listItems;
         this.context = context;
     }
@@ -32,10 +32,10 @@ public class AdapterHamb extends RecyclerView.Adapter<AdapterHamb.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull AdapterHamb.ViewHolder holder, int position) {
-        ListItem listItem = listItems.get(position);
-        holder.txTitle.setText(listItem.getTitle());
+        RestauranteClass listItem = listItems.get(position);
+        holder.txTitle.setText(listItem.getNome());
         holder.txDesc.setText(listItem.getDesc());
-        holder.imgHamb.setImageResource(R.mipmap.hamburguer);
+        holder.imgHamb.setImageResource(listItem.getImg());
     }
 
     @Override
