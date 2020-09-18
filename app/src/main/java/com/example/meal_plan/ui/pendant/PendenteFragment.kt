@@ -19,8 +19,8 @@ import org.json.JSONArray
 class PendenteFragment : Fragment() {
 
     private lateinit var homeViewModel: PendenteViewModel
-    var daftarMhs = mutableListOf<HashMap<String, String>>()
-    var url = "http://192.168.25.239/meal_plan/show_data.php"
+    var getdata = mutableListOf<HashMap<String, String>>()
+    var url = "http://192.168.1.10/acai_montagem/show_data.php"
     lateinit var mhsAdapter: AdapterDataMhs
 
     override fun onCreateView(
@@ -32,7 +32,7 @@ class PendenteFragment : Fragment() {
         homeViewModel =
             ViewModelProviders.of(this).get(PendenteViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_pendant, container, false)
-        mhsAdapter = AdapterDataMhs(daftarMhs)
+        mhsAdapter = AdapterDataMhs(getdata)
         val lista: RecyclerView = root.findViewById(R.id.listaPed)
         lista.layoutManager = LinearLayoutManager(context)
         lista.adapter = mhsAdapter
@@ -47,10 +47,11 @@ class PendenteFragment : Fragment() {
                 for (x in 0..(jsonArray.length() - 1)) {
                     val jsonObject = jsonArray.getJSONObject(x)
                     var mhs = HashMap<String, String>()
-                    mhs.put("food_name", jsonObject.getString("food_name"))
-                    mhs.put("food_desc", jsonObject.getString("food_desc"))
-                    mhs.put("url", jsonObject.getString("url"))
-                    daftarMhs.add(mhs)
+                    mhs.put("id_pedido", jsonObject.getString("id_pedido"))
+                    mhs.put("pedido_mesa", jsonObject.getString("pedido_mesa"))
+                    mhs.put("acai_passos", jsonObject.getString("acai_passos"))
+                    //mhs.put("url", jsonObject.getString("url"))
+                    getdata.add(mhs)
                 }
                 mhsAdapter.notifyDataSetChanged()
             },
